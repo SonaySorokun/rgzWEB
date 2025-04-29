@@ -1,0 +1,53 @@
+body {
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+}
+
+main {
+    color: maroon;
+    font-family: Arial;
+    margin: 10px 20px 48px;
+}
+
+div.menu {
+    border: 5px solid rgba(128, 0, 0, 0.653);
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    background-color: rgba(110, 81, 179, 0.451);
+}
+
+a {
+    color: maroon;
+    transition: 1s 0.8s;
+}
+
+a:link {
+    color: maroon;
+}
+
+a:visited {
+    color: rgb(156, 98, 226);
+}
+
+header {
+    background-color: rgb(198, 173, 230);
+    color: rgb(92, 90, 217);
+    font-family: Arial;
+    margin: 0px;
+    padding: 15px;
+}
+
+footer {
+    background-color: rgb(198, 173, 230);
+    color: rgb(92, 90, 217);
+    font-family: Arial;
+    margin: 0px;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
