@@ -17,6 +17,7 @@
             margin: 0;
             padding: 20px;
             padding-top: 80px;
+            margin-right: 200px;
             }
             h1 {
             color: #b0171f;
@@ -31,7 +32,7 @@
             img {
             max-width: 100%;
             height: auto;
-            margin: 10px 0;
+            margin: 10px;
             }
             header{
                 position: fixed;
@@ -49,11 +50,8 @@
                 height: 60px;
                 background-color: black;
                 color: white;
-                text-align: center;
-                display: flex;
                 padding: 10px;
                 margin: 0;
-                width: 100%;
             }
             #toTop {
                 position: fixed;
@@ -68,11 +66,39 @@
                 text-decoration: none;
                 box-shadow: 0 2px 6px rgba(0,0,0,0.3);
                 z-index: 1000;
-                transition: background-color 0.3s ease;
+                transition: 0.3s;
             }
-
-            #toTop:hover {
-                background-color: #a51e15;
+            .side-menu {
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                height: 100%;
+                background-color: #f4f4f4;
+                border-left: 2px solid #ccc;
+                padding-top: 20px;
+                z-index: 999;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+            }
+            .side-menu ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .side-menu ul li a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                transition: 0.3s;
+            }
+            .side-menu ul li a:hover {
+                background-color: #e6e6e6;
+            }
+            .side-menu ul li a.active {
+                background-color: #b0171f;
+                color: white;
+                font-weight: bold;
             }
         </style>
     </head>
@@ -83,6 +109,14 @@
             </div>
             <img src="logo.jpg" style="width: 120px; height: auto;">
         </header>
+        <nav class="side-menu">
+            <ul>
+                <li><a href="../index.html">Главная страница</a></li>
+                <li><a href="../lukoil/company.html" class="active">ЛУКОИЛ</a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </nav>        
         <main>
             <h1><b>Информация о компании «Лукойл»</b></h1>
 
