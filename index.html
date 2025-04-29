@@ -7,12 +7,60 @@
         <link rel="shortcut icon" href="favicon_io1/favicon1.ico" type="image/x-icon">
         <link rel="icon" href="favicon_io1/favicon-16x161.png">
         <link rel="icon" href="favicon_io1/favicon-32x321.png">
+        <style>
+            .side-menu {
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                height: 100%;
+                background-color: rgb(186, 162, 218);
+                border-left: 2px solid rgb(185, 158, 220);
+                padding-top: 20px;
+                z-index: 999;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+            }
+            .side-menu ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .side-menu ul li a {
+                display: block;
+                padding: 15px 20px;
+                color: maroon;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+            .side-menu ul li a:hover {
+                background-color: rgb(172, 156, 193);
+            }
+            .side-menu ul li a.active {
+                background-color: #8b6dc7;
+                color: white;
+                font-weight: bold;
+            }
+            main {
+                margin-right: 200px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            body {
+                font-family: 'Times New Roman', Times, serif;
+            }
+        </style>
     </head>
     <body>
         <header>
                 НГТУ, ФБ, Расчётно графическое задание
         </header>
-        
+        <nav class="side-menu">
+            <ul>
+                <li><a href="../index.html" class="active">Главная страница</a></li>
+                <li><a href="../lukoil/company.html">ЛУКОИЛ</a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </nav>  
         <main>
             <h1 style=" text-align: center;"git>Разделы расчётно графического задания</h1>
 
