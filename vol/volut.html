@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Курс валют — Калькулятор</title>
+        <link rel="shortcut icon" href="../favicon_io3/favicon3.ico" type="image/x-icon" >
+        <link rel="icon" href="../favicon_io3/favicon-16x163.png" >
+        <link rel="icon" href="../favicon_io3/favicon-32x323.png" >
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Times New Roman', Times, serif;
+                background-color: #f0f9ee;
+                color: #044700;
+            }
+            header {
+                background-color: #08a600;
+                color: white;
+                position: fixed;
+                padding-left: 20px;
+                font-size: 20px;
+                width: 100%;
+                height: 60px;
+                top: 0;
+                left: 0;
+            }
+            footer {
+                font-family: 'Times New Roman', Times, serif;
+                position: fixed;
+            }
+            .container {
+                margin: 80px 220px 40px 40px;
+            }
+            .converter {
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                margin-bottom: 30px;
+            }
+            input, button {
+                padding: 10px;
+                margin: 5px;
+                font-size: 16px;
+            }
+            .side-menu {
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                height: 100%;
+                background-color: #d5f3cf;
+                border-left: 2px solid #00a611;
+                padding-top: 20px;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+            }
+            .side-menu ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .side-menu ul li a {
+                display: block;
+                padding: 15px 20px;
+                color: #003147;
+                text-decoration: none;
+            }
+            .side-menu ul li a:hover {
+                background-color: #b2ecb3;
+            }
+            .side-menu ul li a.active {
+                background-color: #00a627;
+                color: white;
+                font-weight: bold;
+            }
+            #toTop {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #08a600;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 20px;
+                text-decoration: none;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                z-index: 1000;
+            }
+        </style>
+        <script>
+            let sgdRate = null;
+            
+            //взятие курса
+            async function getSGDRate() {
+                const res = await fetch("https://www.cbr-xml-daily.ru/daily_json.js");
+                const data = await res.json();
+                sgdRate = data.Valute.SGD.Value;
+            }
+
+            // проверка корректности числа
+            function isValidNumber(value) {
+                if (value === "" || isNaN(value) || parseFloat(value) < 0) {
+                    return false;
+                }
+                return true;
+            }
+
+            // проверка взят ли курс
+            async function convertToCurrency() {
+                if (!sgdRate) {
+                    await getSGDRate();
+                }
+
+                // проверка введённого числа
+                const rublesInput = document.getElementById("amount").value;
+                if (!isValidNumber(rublesInput)) {
+                    document.getElementById("result").textContent = "Введите корректную положительную сумму в рублях.";
+                    return;
+                }
+
+                // преобразование числа, вычисление курса, вывод ответа
+                const rubles = parseFloat(rublesInput);
+                const result = rubles / sgdRate;
+                document.getElementById("result").textContent = rubles + " ₽ = " + result.toFixed(2) + " S$";
+            }
+
+            // проверка взят ли курс
+            async function convertToRUB() {
+                if (!sgdRate) {
+                    await getSGDRate();
+                }
+
+                // проверка введённого числа
+                const sgdInput = document.getElementById("amount").value;
+                if (!isValidNumber(sgdInput)) {
+                    document.getElementById("result").textContent = "Введите корректную положительную сумму в сингапурских долларах.";
+                    return;
+                }
+
+                // преобразование числа, вычисление курса, вывод ответа
+                const sgd = parseFloat(sgdInput);
+                const result = sgd * sgdRate;
+                document.getElementById("result").textContent = sgd + " S$ = " + result.toFixed(2) + " ₽";
+            }
+
+            getSGDRate();
+        </script>
+    </head>
+    <body>
+        <header>
+            Конвертер валют (сингапурский доллар)
+        </header>
+
+        <nav class="side-menu">
+            <ul>
+                <li><a href="../index.html">Главная страница</a></li>
+                <li><a href="../lukoil/company.html">ЛУКОЙЛ</a></li>
+                <li><a href="../News/newslukoil.html">Новости компании</a></li>
+                <li><a href="../vol/volut.html" class="active">Курс валют</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="container">
+                <div class="converter">
+                    <h2>Конвертер валют (только ₽ и S$)</h2>
+                    <p>Курс обновляется автоматически по данным <a href="https://cbr.ru/currency_base/daily/" target="_blank">ЦБ РФ</a></p>
+                    <div>
+                        <input type="number" id="amount" placeholder="Введите сумму">
+                        <button onclick="convertToCurrency()">Перевести из рублей</button>
+                        <button onclick="convertToRUB()">Перевести в рубли</button>
+                        <p id="result"></p>
+                    </div>
+                </div>
+                <canvas id="currencyChart" width="800" height="400"></canvas>
+                <p id="chartInfo"></p>
+            </div>
+        </main>
+
+        <footer>
+            Данная страница поможет вам с переводом только ₽ и S$
+        </footer>
+        <a href="#" id="toTop">↑</a>
+    </body>
+</html>
