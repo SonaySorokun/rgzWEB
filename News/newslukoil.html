@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Новости Лукойл</title>
+        <link rel="shortcut icon" href="../favicon_io2/favicon2.ico" type="image/x-icon" >
+        <link rel="icon" href="../favicon_io2/favicon-16x162.png" >
+        <link rel="icon" href="../favicon_io2/favicon-32x322.png" >
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Times New Roman', Times, serif;
+                background-color: #f9f9f9;
+            }
+            header footer {
+                height: 60px;
+                background-color: white;
+                display: flex;
+                padding: 0 20px;
+            }
+            .side-menu {
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                height: 100%;
+                background-color: #f4f4f4;
+                border-left: 2px solid #ccc;
+                padding-top: 20px;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+            }
+            .side-menu ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .side-menu ul li a {
+                display: block;
+                padding: 15px 20px;
+                color: #333;
+                text-decoration: none;
+                transition: background-color 0.3s;
+            }
+            .side-menu ul li a:hover {
+                background-color: #e6e6e6;
+            }
+            .side-menu ul li a.active {
+                background-color: #b0171f;
+                color: white;
+                font-weight: bold;
+            }
+            main {
+                margin: 80px 220px 20px 20px;
+            }
+            .news-card {
+                background-color: white;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .news-card h3 {
+                margin-top: 0;
+                color: #b0171f;
+            }
+            .news-card .date {
+                font-size: 12px;
+                color: gray;
+            }
+            .news-card p {
+                margin-bottom: 10px;
+            }
+            .full-text {
+                display: none;
+                margin-top: 10px;
+            }
+            .show-button {
+                background-color: #b0171f;
+                color: white;
+                border: none;
+                padding: 8px 12px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+            .show-button:hover {
+                background-color: #a01418;
+            }
+            #toTop {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #a51e15;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 20px;
+                text-decoration: none;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                z-index: 1000;
+            }
+        </style>
+        <script>
+            function ShowText(button) {
+                let fullText = button.nextElementSibling;
+                if (fullText.style.display === "block") {
+                    fullText.style.display = "none";
+                    button.textContent = "Показать";
+                } else {
+                    fullText.style.display = "block";
+                    button.textContent = "Скрыть";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h2>Новости компании Лукойл</h2>
+        </header>
+        
+        <nav class="side-menu">
+            <ul>
+                <li><a href="../index.html">Главная страница</a></li>
+                <li><a href="../lukoil/company.html">ЛУКОЙЛ</a></li>
+                <li><a href="newslukoil.html" class="active">Новости компании</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="news-card">
+                <div class="date">15 апреля 2025</div>
+                <h3>Лукойл увеличил добычу нефти на месторождении Западная Курна-2</h3>
+                <p>Компания завершила модернизацию инфраструктуры, что позволило увеличить объем добычи...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>В результате модернизации добыча на месторождении Западная Курна-2 в Ираке возросла на 20%. Лукойл планирует продолжать инвестировать в развитие зарубежных активов, несмотря на изменения мировой конъюнктуры.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">1 апреля 2025</div>
+                <h3>Лукойл объявил о старте новой экологической программы</h3>
+                <p>Компания начала реализацию проекта по восстановлению лесных массивов в Западной Сибири...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>Программа включает посадку более 2 миллионов деревьев к 2027 году и привлечение местных сообществ к участию в озеленении промышленных зон.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">20 марта 2025</div>
+                <h3>Лукойл подписал контракт на поставку топлива в Европу</h3>
+                <p>Подписано соглашение о долгосрочных поставках нефтепродуктов с крупными европейскими компаниями...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>Контракт предусматривает экспорт более 5 млн тонн нефтепродуктов ежегодно в страны Центральной и Восточной Европы.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">10 марта 2025</div>
+                <h3>Лукойл инвестирует в разработку новых технологий переработки нефти</h3>
+                <p>Создан научно-исследовательский центр в Нижегородской области...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>Центр займется разработкой новых катализаторов для повышения эффективности переработки тяжелых нефтей.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">25 февраля 2025</div>
+                <h3>Лукойл открыл новую автозаправочную станцию в Татарстане</h3>
+                <p>Новая АЗС соответствует современным экологическим требованиям и предлагает расширенный сервис...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>На АЗС внедрены системы рекуперации паров бензина и установлены зарядные станции для электромобилей.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">14 февраля 2025</div>
+                <h3>Лукойл обновил корпоративный кодекс социальной ответственности</h3>
+                <p>Компания представила обновленные стандарты взаимодействия с партнерами и обществом...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>Новый кодекс отражает принципы устойчивого развития и соблюдение прав человека во всех регионах присутствия Лукойла.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">5 февраля 2025</div>
+                <h3>Лукойл принял участие в международной нефтегазовой выставке в Абу-Даби</h3>
+                <p>Компания презентовала свои новейшие технологии и достижения в области разведки и добычи нефти...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>На выставке были продемонстрированы достижения компании в области цифровизации процессов и перехода на низкоуглеродные технологии.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">28 января 2025</div>
+                <h3>Лукойл ввел в эксплуатацию новую нефтебазу в Краснодарском крае</h3>
+                <p>Новый объект позволит значительно увеличить логистические мощности компании на юге России...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>Нефтебаза оснащена современными средствами автоматизации и системами экологического контроля.</p>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="date">15 января 2025</div>
+                <h3>Лукойл подвел итоги благотворительной программы 2024 года</h3>
+                <p>Компания направила свыше 3 млрд рублей на поддержку социальных проектов в регионах...</p>
+                <button class="show-button" onclick="ShowText(this)">Показать</button>
+                <div class="full-text">
+                    <p>Средства были направлены на развитие образования, здравоохранения, спорта и культуры в более чем 30 регионах России.</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            Узнайте больше новостей на основном сайте Лукойл
+        </footer>
+        <a href="#" id="toTop">↑</a>
+    </body>
+</html>
