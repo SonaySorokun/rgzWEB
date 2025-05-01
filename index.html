@@ -1,84 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Сорокун Соня Романовна. Расчётно графическая работа по WEB-программированию</title>
-        <link rel="stylesheet" href="main.css">
-        <link rel="shortcut icon" href="favicon_io1/favicon1.ico" type="image/x-icon">
-        <link rel="icon" href="favicon_io1/favicon-16x161.png">
-        <link rel="icon" href="favicon_io1/favicon-32x321.png">
-        <style>
-            .side-menu {
+<head>
+    <meta charset="UTF-8">
+    <title>Сорокун Соня Романовна. Расчётно графическая работа по WEB-программированию</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="favicon_io1/favicon1.ico" type="image/x-icon">
+    <link rel="icon" href="favicon_io1/favicon-16x161.png">
+    <link rel="icon" href="favicon_io1/favicon-32x321.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        main {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 20px;
+            padding-top: 80px;
+            margin-right: 200px;
+        }
+        h1 {
+            color: #b0171f;
+            text-align: center;
+        }
+        h2, h3, a {
+            color: #b0171f;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+        header{
                 position: fixed;
-                top: 60px;
-                right: 0;
-                width: 200px;
-                height: 100%;
-                background-color: rgb(186, 162, 218);
-                border-left: 2px solid rgb(185, 158, 220);
-                padding-top: 20px;
-                z-index: 999;
-                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
-            }
-            .side-menu ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-            .side-menu ul li a {
-                display: block;
-                padding: 15px 20px;
-                color: maroon;
-                text-decoration: none;
-                transition: 0.3s;
-            }
-            .side-menu ul li a:hover {
-                background-color: rgb(172, 156, 193);
-            }
-            .side-menu ul li a.active {
-                background-color: #8b6dc7;
+                width: 100%;
+                height: 40px;
+                background-color: black;
                 color: white;
-                font-weight: bold;
+                top: 0;
+                left: 0;
+                padding: 10px;
             }
-            main {
-                margin-right: 200px;
-                font-family: 'Times New Roman', Times, serif;
-            }
-            body {
-                font-family: 'Times New Roman', Times, serif;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-                НГТУ, ФБ, Расчётно графическое задание
-        </header>
+        footer{
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            height: 30px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+        .side-menu {
+            position: fixed;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #f4f4f4;
+            border-left: 2px solid #ccc;
+            padding-top: 20px;
+            z-index: 999;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+        }
+        .side-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .side-menu ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .side-menu ul li a:hover {
+            background-color: #e6e6e6;
+        }
+        .side-menu ul li a.active {
+            background-color: #b0171f;
+            color: white;
+            font-weight: bold;
+        }
+        .text {
+            background-color: #e6e6e6;
+            border: 3px solid #b0171f;
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+            box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Расчётно графическое задание
+    </header>
 
-        <nav class="side-menu">
-            <ul>
-                <li><a href="index.html" class="active">Главная страница</a></li>
-                <li><a href="lukoil/company.html">ЛУКОЙЛ</a></li>
-                <li><a href="News/newslukoil.html">Новости компании</a></li>
-                <li><a href="vol/volut.html">Курс валют</a></li>
-                <li><a href="info/information.html">Контактные данные</a></li>
-            </ul>
-        </nav>
+    <nav class="side-menu">
+        <ul>
+            <li><a href="index.html" class="active">Главная страница</a></li>
+            <li><a href="lukoil/company.html">ЛУКОЙЛ</a></li>
+            <li><a href="News/newslukoil.html">Новости компании</a></li>
+            <li><a href="vol/volut.html">Курс валют</a></li>
+            <li><a href="info/information.html">Контактные данные</a></li>
+        </ul>
+    </nav>
 
-        <main>
-            <h1 style=" text-align: center;"git>Разделы расчётно графического задания</h1>
-
-            <div class="menu">
-                <ol>
-                    <li><a href="lukoil/company.html">Информация о компании</a></li>
-                    <li><a href="News/newslukoil.html">Новости компании</a></li>
-                    <li><a href="vol/volut.html">Курс валют</a></li>
-                    <li><a href="info/information.html">Контактные данные</a></li>
-                </ol>
+    <main>
+        <div style="align-items: center; display: flex; gap: 20px;" class="text">
+            <img src="lukoil/lukoil4.webp" style="width: auto; height: 500px; border-radius: 8px;">
+            <div>
+                <p><b>Данный сайт создан студентом группы ФБИ-32 Сорокун С.Р., для защиты расчётно-графического задания по дисциплине WEB-программирование в 2025 году.</b></p>
+                <p>На данном сайте располагается информация о компании ЛУКОЙЛ с которой вы можете ознакомится на других страницах.</p>
             </div>
-        </main>
+        </div>
+    </main>    
 
-        <footer>
-                &copy; Сорокун Соня, ФБИ-32, 2 курс, 2025
-        </footer>
-    </body>
+    <footer>
+        &copy; Сорокун Соня, ФБИ-32, 2 курс, 2025
+    </footer>
+</body>
 </html>
