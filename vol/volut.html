@@ -27,7 +27,9 @@
             }
             footer {
                 font-family: 'Times New Roman', Times, serif;
-                position: fixed;
+                position: static;
+                bottom: 0;
+                z-index: 100;
             }
             .container {
                 margin: 80px 220px 40px 40px;
@@ -89,6 +91,7 @@
                 z-index: 1000;
             }
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
             let sgdRate = null;
             
@@ -107,6 +110,7 @@
                 return true;
             }
 
+            //Конвертация RUB в SGD
             // проверка взят ли курс
             async function convertToCurrency() {
                 if (!sgdRate) {
@@ -126,6 +130,7 @@
                 document.getElementById("result").textContent = rubles + " ₽ = " + result.toFixed(2) + " S$";
             }
 
+            //Конвертация SGD в RUB
             // проверка взят ли курс
             async function convertToRUB() {
                 if (!sgdRate) {
@@ -146,6 +151,61 @@
             }
 
             getSGDRate();
+
+            // Данные в массивах за апрель 2025 года
+            const chartLabels = [
+                "01.04.2025", "02.04.2025", "03.04.2025", "04.04.2025",
+                "05.04.2025", "08.04.2025", "09.04.2025", "10.04.2025",
+                "11.04.2025", "12.04.2025", "15.04.2025", "16.04.2025",
+                "17.04.2025", "18.04.2025", "19.04.2025", "22.04.2025",
+                "23.04.2025", "24.04.2025", "25.04.2025", "26.04.2025",
+                "29.04.2025", "30.04.2025"
+            ];
+
+            const chartData = [
+                63.7556, 63.2090, 62.9483, 62.7990, 63.2856,
+                63.9955, 63.3678, 63.6919, 63.4116, 63.3371,
+                62.8738, 62.5858, 62.7864, 62.4439, 61.7717,
+                61.9228, 62.4326, 62.7676, 62.9987, 62.8889,
+                62.7779, 62.3178
+            ];
+
+            // Создание диаграммы
+            window.onload = function () {
+                const context = document.getElementById('exchangeRateChart').getContext('2d');
+
+                const exchangeRateChart = new Chart(context, {
+                    type: 'bar',
+                    // раздел с данными
+                    data: {
+                        labels: chartLabels, // даты (х)
+                        //задание массива с графиком курса
+                        datasets: [{
+                            label: 'Курс SGD к RUB',
+                            data: chartData, // значения (у)
+                            backgroundColor: 'rgb(159, 198, 159)',
+                            borderColor: 'rgb(144, 178, 144)',
+                            borderWidth: 1
+                        }]
+                    },
+                    //настройка графика
+                    options: {
+                        onClick: function(event, bars) {
+                            if (bars.length > 0) {
+                                const number = bars[0].index;
+                                const date = chartLabels[number];
+                                const kyrs = chartData[number];
+                                alert(`Дата: ${date}\nКурс: ${kyrs} ₽`);
+                            }
+                        },
+                        //настройка осей
+                        scales: {
+                            y: {beginAtZero: false,title: {display: true, text: 'Курс (₽)'}},
+                            x: {title: { display: true, text: 'Дата'}}
+                        }
+                    }
+                });
+            }
         </script>
     </head>
     <body>
@@ -174,14 +234,18 @@
                         <p id="result"></p>
                     </div>
                 </div>
-                <canvas id="currencyChart" width="800" height="400"></canvas>
                 <p id="chartInfo"></p>
+            </div>
+            <div style="margin-right: 220px;">
+                <canvas id="exchangeRateChart" width="200" height="100"></canvas>
             </div>
         </main>
 
         <footer>
-            Данная страница поможет вам с переводом только ₽ и S$
+            <div>
+                Данная страница поможет вам с переводом только ₽ и S$
+            </div>
         </footer>
-        <a href="#" id="toTop">↑</a>
+            <a href="#" id="toTop">↑</a>
     </body>
 </html>
