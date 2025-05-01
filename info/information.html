@@ -28,18 +28,22 @@
             }
             header {
                 position: fixed;
-                width: 100%;
-                height: 60px;
-                background-color: white;
                 top: 0;
                 left: 0;
+                height: 30px;
+                background-color: rgb(255, 255, 255);
                 padding: 10px;
+                margin: 0;
             }
-            footer {
-                height: 60px;
-                background-color: white;
-                display: flex;
-                padding: 0 20px;
+            footer{
+                position: relative;
+                bottom: 0;
+                left: 0;
+                height: 30px;
+                background-color: black;
+                color: white;
+                padding: 10px;
+                margin: 0;
             }
             .side-menu {
                 position: fixed;
@@ -51,6 +55,7 @@
                 border-left: 2px solid #ccc;
                 padding-top: 20px;
                 box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+                z-index: 999;
             }
             .side-menu ul {
                 list-style: none;
@@ -119,25 +124,29 @@
             <h2>Головной офис ЛУКОЙЛ</h2>
             <div>
                 г. Москва, ул. Сретенка, д.11<br>
-                <div class="info">
-                    Для клиентов сети АЗС:<br>
-                    Телефон: +7(800)100-09-11<br>
-                    Электронная почта:<br>
-                    <a href="mailto:hotline@lukoil.com">hotline@lukoil.com</a><br>
-                </div>
-                <div class="info">
-                    Справочная служба:<br>
-                    Факс: +7(495)625-70-16<br>
-                    Телефон:<br>
-                    +7(495)628-98-41<br>
-                    +7(495)627-44-44<br>
-                    Электронная почта:<br>
-                    <a href="mailto:lukoil@lukoil.ru">lukoil@lukoil.ru</a><br>
-                    <a href="mailto:lukoil@lukoil.com">lukoil@lukoil.com</a>
-                </div>
+                <div style="display: flex; gap: 20px;">
+                    <div>
+                        <div class="info">
+                            <b>Для клиентов сети АЗС:</b><br>
+                            Телефон: +7(800)100-09-11<br>
+                            Электронная почта:<br>
+                            <a href="mailto:hotline@lukoil.com">hotline@lukoil.com</a><br>
+                        </div>
+                        <div class="info">
+                            <b>Справочная служба:</b><br>
+                            Факс: +7(495)625-70-16<br>
+                            Телефон:<br>
+                            +7(495)628-98-41<br>
+                            +7(495)627-44-44<br>
+                            Электронная почта:<br>
+                            <a href="mailto:lukoil@lukoil.ru">lukoil@lukoil.ru</a><br>
+                            <a href="mailto:lukoil@lukoil.com">lukoil@lukoil.com</a>
+                        </div>
+                    </div>
+                    <img src="../lukoil/lukoil4.webp" style="width: 600px; height: auto; border-radius: 8px;">
+                </div>                            
             </div>
 
-            <h2>Интерактивная карта</h2>
             <p>Ниже вы можете увидеть расположение главного офиса ЛУКОЙЛ на карте Яндекс:</p>
             <iframe src="https://yandex.ru/map-widget/v1/?ll=37.635523%2C55.765181&z=18&pt=37.635523,55.765181,pm2rdm" width="100%" height="400" allowfullscreen></iframe>
         </main>
